@@ -5,7 +5,7 @@
 static GLFWwindow* window = nullptr;
 static float clearR = 0.0f;
 static float clearG = 0.0f;
-static float clearB = 0.0f;
+static float clearB = 0.0f;//coomit
 
 void create(int width, int height, const char* name)
 {
