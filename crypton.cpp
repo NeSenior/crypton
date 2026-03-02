@@ -3,37 +3,25 @@
 #include <iostream>
 
 static GLFWwindow* window = nullptr;
-static float clearR = 0.0f;
-static float clearG = 0.0f;
-static float clearB = 0.0f;
 
-void create(int width, int height, const char* name)
+namespace crypton
 {
-    glfwInit();
-    window = glfwCreateWindow(width, height, name, NULL, NULL);
-    glfwMakeContextCurrent(window);
-}
-
-void setBackGroundColor(float r, float g, float b){
-    clearR = r;
-    clearG = g;
-    clearB = b;
-}
-
-void run(){
-    while (!glfwWindowShouldClose(window))
+    void create(int width, int height, const char* title)
     {
-        glClearColor(clearR,clearG,clearB,1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        Update();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        if (!glfwInit())
+        {
+            std::cout << "GLFW init failed\n";
+            return;
+        }
+        window = glfwCreateWindow(width, height, title, NULL, NULL);
+        glfwMakeContextCurrent(window);
+        Start();
+        while (!glfwWindowShouldClose(window))
+        {
+            glfwPollEvents();
+            Update();
+            glfwSwapBuffers(window);
+        }
+        glfwTerminate();
     }
-    
-}
-void destroy()
-{
-    glfwTerminate();
 }

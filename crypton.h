@@ -1,10 +1,8 @@
-#ifndef CRYPTON_H
-#define CRYPTON_H
+#pragma once
 
-void create(int width, int height, const char* name);
+namespace crypton{
+    void create(int width, int height, const char* name);
+}
+
+void Start();
 void Update();
-void run();
-void destroy();
-void setBackGroundColor(float r,float g,float b);
-
-#endif
