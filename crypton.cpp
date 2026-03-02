@@ -21,7 +21,7 @@ namespace crypton
             glfwPollEvents();
             Update();
             glfwSwapBuffers(window);
-        }
+        }//
         glfwTerminate();
     }
 }
